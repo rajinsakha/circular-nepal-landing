@@ -13,10 +13,10 @@ const JoinSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary mb-4">
             {JOIN_SECTION.title}
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
             {JOIN_SECTION.subtitle}
           </p>
         </motion.div>
@@ -41,15 +41,15 @@ const JoinSection = () => {
               >
                 <stakeholder.icon className="w-7 h-7 text-primary-foreground" />
               </div>
-              <h3 className="text-xl font-bold text-primary mb-3">
+              <h3 className="text-lg sm:text-xl font-bold text-primary mb-3">
                 {stakeholder.title}
               </h3>
-              <p className="text-muted-foreground leading-relaxed mb-6">
+              <p className="text-sm sm:text-base text-muted-foreground leading-relaxed mb-6">
                 {stakeholder.description}
               </p>
               <a
                 href={JOIN_SECTION.cta.href}
-                className="inline-flex items-center text-accent font-semibold hover:text-sun transition-colors"
+                className="inline-flex items-center text-sm sm:text-base text-accent font-semibold hover:text-sun transition-colors"
               >
                 {JOIN_SECTION.cta.label}
                 <svg

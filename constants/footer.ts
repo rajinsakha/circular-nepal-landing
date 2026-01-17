@@ -1,10 +1,10 @@
 import { Mail, MapPin, Phone } from "lucide-react";
-import { SiGoogleanalytics, SiInstagram, SiLinkedin } from "react-icons/si";
+import logo from "@/assets/logo.png";
+import { SiFacebook, SiInstagram, SiLinkedin } from "react-icons/si";
 
 export const FOOTER_CONTENT = {
   brand: {
-    logoSrc:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuCEI_qfByV0Ig0cVQO7MZ1YMvuUzS80hjtSQyabEsn_NXB8K9QrIU7QZRxkHy3LgwwpB45OLk_DyODpjETe008_6qXeA3zAS1V0RII2APbvIFo2ZgYBQ7Kl7DC0BJQ1bVGVuDsk_N9d3vd5E06ZPRVpPKow9_CoKxr1vA7kcF3bYzSsafpbE42zZTDlbaML7qwJuulgGkrVIS9gDnA4i9xmj3Nr3qzWBcTmd8cOP2fU1X3BGji1cQhyZfiV_AQ4JIdxyzIDzT04UMU",
+    logoSrc: logo,
     logoAlt: "Circular Nepal Logo",
     name: "Circular",
     accent: "Nepal",
@@ -47,10 +47,10 @@ export const FOOTER_CONTENT = {
     title: "Connect",
     socials: [
       {
-        id: "leaderboard",
-        label: "Leaderboard",
+        id: "facebook",
+        label: "Facebook",
         href: "#",
-        icon: SiGoogleanalytics,
+        icon: SiFacebook,
       },
       {
         id: "instagram",
@@ -73,8 +73,7 @@ export const FOOTER_CONTENT = {
     label: "Get Involved",
   },
   legal: {
-    copyright:
-      "© 2024 Circular Nepal. Registered NGO No. 1234/56. All rights reserved.",
+    copyright: "Circular Nepal. All rights reserved.",
     links: [
       { id: "privacy", label: "Privacy Policy", href: "#" },
       { id: "impact-report", label: "Impact Report", href: "#" },

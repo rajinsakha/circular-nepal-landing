@@ -13,10 +13,10 @@ const ApproachSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary mb-4">
             {APPROACH_SECTION.title}
           </h2>
-          <p className="text-lg text-muted-foreground">
+          <p className="text-base sm:text-lg text-muted-foreground">
             {APPROACH_SECTION.subtitle}
           </p>
         </motion.div>
@@ -34,10 +34,10 @@ const ApproachSection = () => {
               <div className="w-14 h-14 bg-gradient-to-br from-accent to-sun rounded-xl flex items-center justify-center mb-6">
                 <approach.icon className="w-7 h-7 text-white" />
               </div>
-              <h3 className="text-xl font-bold text-primary mb-3">
+              <h3 className="text-lg sm:text-xl font-bold text-primary mb-3">
                 {approach.title}
               </h3>
-              <p className="text-muted-foreground leading-relaxed">
+              <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
                 {approach.description}
               </p>
             </motion.div>

@@ -52,11 +52,11 @@ const MountainSection = () => {
         transition={{ duration: 0.8, delay: 0.3 }}
         viewport={{ once: true }}
       >
-        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 drop-shadow-lg">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 drop-shadow-lg">
           {MOUNTAIN_SECTION.title}{" "}
           <span className="text-sun">{MOUNTAIN_SECTION.highlight}</span>
         </h2>
-        <p className="text-xl md:text-2xl text-white/90 drop-shadow-md">
+        <p className="text-base sm:text-lg md:text-xl text-white/90 drop-shadow-md">
           {MOUNTAIN_SECTION.description}
         </p>
       </motion.div>

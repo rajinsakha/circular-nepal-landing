@@ -19,12 +19,12 @@ const HeroSection = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3, duration: 0.6 }}
-            className="text-accent font-medium tracking-wide uppercase mb-4"
+            className="text-xs sm:text-sm md:text-base text-accent font-medium tracking-wide uppercase mb-4"
           >
             {HERO_SECTION.tagline}
           </motion.p>
 
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-primary mb-6 leading-tight">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-primary mb-6 leading-tight">
             {HERO_SECTION.title.primary}{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-sun">
               {HERO_SECTION.title.accent}
@@ -35,7 +35,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.6 }}
-            className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto"
+            className="text-lg sm:text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto"
           >
             {HERO_SECTION.description.prefix}
             <span className="text-accent font-semibold">
@@ -52,13 +52,13 @@ const HeroSection = () => {
           >
             <a
               href={HERO_SECTION.cta.primary.href}
-              className="px-8 py-4 bg-primary text-primary-foreground rounded-full font-semibold text-lg hover:bg-primary/90 transition-all hover:shadow-xl hover:-translate-y-1"
+              className="px-8 py-4 text-base sm:text-lg bg-primary text-primary-foreground rounded-full font-semibold hover:bg-primary/90 transition-all hover:shadow-xl hover:-translate-y-1"
             >
               {HERO_SECTION.cta.primary.label}
             </a>
             <a
               href={HERO_SECTION.cta.secondary.href}
-              className="px-8 py-4 border-2 border-primary text-primary rounded-full font-semibold text-lg hover:bg-primary/5 transition-all"
+              className="px-8 py-4 text-base sm:text-lg border-2 border-primary text-primary rounded-full font-semibold hover:bg-primary/5 transition-all"
             >
               {HERO_SECTION.cta.secondary.label}
             </a>

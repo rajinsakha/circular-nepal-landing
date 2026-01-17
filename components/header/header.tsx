@@ -55,7 +55,7 @@ const Header = () => {
               alt={HEADER_CONTENT.brand.logoAlt}
               className="w-10 h-10 md:w-14 md:h-14 object-contain"
             />
-            <span className="text-base md:text-lg font-semibold text-primary">
+            <span className="text-sm sm:text-base md:text-lg font-semibold text-primary">
               {HEADER_CONTENT.brand.name}
             </span>
           </a>
@@ -65,14 +65,14 @@ const Header = () => {
               <a
                 key={link.id}
                 href={link.href}
-                className="text-primary/80 hover:text-primary transition-colors font-medium"
+                className="text-sm lg:text-base text-primary/80 hover:text-primary transition-colors font-medium"
               >
                 {link.label}
               </a>
             ))}
             <a
               href={HEADER_CONTENT.cta.href}
-              className="px-5 py-2 bg-primary text-primary-foreground rounded-full font-medium hover:bg-primary/90 transition-colors"
+              className="px-5 py-2 text-sm lg:text-base bg-primary text-primary-foreground rounded-full font-medium hover:bg-primary/90 transition-colors"
             >
               {HEADER_CONTENT.cta.label}
             </a>
@@ -108,60 +108,49 @@ const Header = () => {
             </svg>
           </button>
         </div>
-      </motion.header>
 
-      {/* Mobile Menu Overlay */}
-      <AnimatePresence>
-        {isMobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className="fixed inset-0 bg-background/80 backdrop-blur-sm z-40 md:hidden"
-            onClick={closeMobileMenu}
-          />
-        )}
-      </AnimatePresence>
-
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {isMobileMenuOpen && (
-          <motion.nav
-            initial={{ x: "100%" }}
-            animate={{ x: 0 }}
-            exit={{ x: "100%" }}
-            transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            className="fixed top-0 right-0 h-full w-3/4 max-w-sm bg-background shadow-2xl z-45 md:hidden pt-24 px-6"
-          >
-            <div className="flex flex-col gap-6">
-              {HEADER_CONTENT.navLinks.map((link, index) => (
+        {/* Mobile dropdown menu */}
+        <AnimatePresence>
+          {isMobileMenuOpen && (
+            <motion.nav
+              initial={{ opacity: 0, y: -8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -8 }}
+              transition={{ duration: 0.2, ease: "easeOut" }}
+              className="md:hidden absolute left-0 right-0 top-full bg-background/95 backdrop-blur-md border-t border-primary/10 shadow-lg"
+            >
+              <div className="container mx-auto px-4 py-6 flex flex-col gap-4">
+                {HEADER_CONTENT.navLinks.map((link, index) => (
+                  <motion.a
+                    key={link.id}
+                    href={link.href}
+                    onClick={closeMobileMenu}
+                    initial={{ opacity: 0, y: -6 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.05, duration: 0.15 }}
+                    className="text-lg sm:text-xl font-medium text-primary/80 hover:text-primary transition-colors py-2 border-b border-primary/10"
+                  >
+                    {link.label}
+                  </motion.a>
+                ))}
                 <motion.a
-                  key={link.id}
-                  href={link.href}
+                  href={HEADER_CONTENT.cta.href}
                   onClick={closeMobileMenu}
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                  className="text-xl font-medium text-primary/80 hover:text-primary transition-colors py-2 border-b border-primary/10"
+                  initial={{ opacity: 0, y: -6 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{
+                    delay: HEADER_CONTENT.navLinks.length * 0.05,
+                    duration: 0.15,
+                  }}
+                  className="mt-2 px-6 py-3 text-base sm:text-lg bg-primary text-primary-foreground rounded-full font-medium hover:bg-primary/90 transition-colors text-center"
                 >
-                  {link.label}
+                  {HEADER_CONTENT.cta.label}
                 </motion.a>
-              ))}
-              <motion.a
-                href={HEADER_CONTENT.cta.href}
-                onClick={closeMobileMenu}
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: HEADER_CONTENT.navLinks.length * 0.1 }}
-                className="mt-4 px-6 py-3 bg-primary text-primary-foreground rounded-full font-medium hover:bg-primary/90 transition-colors text-center"
-              >
-                {HEADER_CONTENT.cta.label}
-              </motion.a>
-            </div>
-          </motion.nav>
-        )}
-      </AnimatePresence>
+              </div>
+            </motion.nav>
+          )}
+        </AnimatePresence>
+      </motion.header>
     </>
   );
 };

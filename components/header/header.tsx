@@ -3,12 +3,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import logo from "@/assets/logo.png";
 import Image from "next/image";
-
-const navLinks = [
-  { href: "#about", label: "About" },
-  { href: "#approach", label: "Approach" },
-  { href: "#join", label: "Join Us" },
-];
+import { HEADER_CONTENT } from "@/constants/header";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -57,18 +52,18 @@ const Header = () => {
           <a href="#" className="flex items-center gap-2 md:gap-3">
             <Image
               src={logo}
-              alt="Circular Nepal"
+              alt={HEADER_CONTENT.brand.logoAlt}
               className="w-10 h-10 md:w-14 md:h-14 object-contain"
             />
             <span className="text-base md:text-lg font-semibold text-primary">
-              Circular Nepal
+              {HEADER_CONTENT.brand.name}
             </span>
           </a>
 
           <nav className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
+            {HEADER_CONTENT.navLinks.map((link) => (
               <a
-                key={link.href}
+                key={link.id}
                 href={link.href}
                 className="text-primary/80 hover:text-primary transition-colors font-medium"
               >
@@ -76,10 +71,10 @@ const Header = () => {
               </a>
             ))}
             <a
-              href="#contact"
+              href={HEADER_CONTENT.cta.href}
               className="px-5 py-2 bg-primary text-primary-foreground rounded-full font-medium hover:bg-primary/90 transition-colors"
             >
-              Contact
+              {HEADER_CONTENT.cta.label}
             </a>
           </nav>
 
@@ -140,9 +135,9 @@ const Header = () => {
             className="fixed top-0 right-0 h-full w-3/4 max-w-sm bg-background shadow-2xl z-45 md:hidden pt-24 px-6"
           >
             <div className="flex flex-col gap-6">
-              {navLinks.map((link, index) => (
+              {HEADER_CONTENT.navLinks.map((link, index) => (
                 <motion.a
-                  key={link.href}
+                  key={link.id}
                   href={link.href}
                   onClick={closeMobileMenu}
                   initial={{ opacity: 0, x: 20 }}
@@ -154,14 +149,14 @@ const Header = () => {
                 </motion.a>
               ))}
               <motion.a
-                href="#contact"
+                href={HEADER_CONTENT.cta.href}
                 onClick={closeMobileMenu}
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: navLinks.length * 0.1 }}
+                transition={{ delay: HEADER_CONTENT.navLinks.length * 0.1 }}
                 className="mt-4 px-6 py-3 bg-primary text-primary-foreground rounded-full font-medium hover:bg-primary/90 transition-colors text-center"
               >
-                Contact
+                {HEADER_CONTENT.cta.label}
               </motion.a>
             </div>
           </motion.nav>

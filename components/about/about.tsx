@@ -1,6 +1,8 @@
 "use client";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import circularConcept from "@/assets/circular-concept.png";
+import { ABOUT_SECTION } from "@/constants/about";
 
 const AboutSection = () => {
   return (
@@ -14,11 +16,10 @@ const AboutSection = () => {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-6 max-w-4xl mx-auto leading-tight">
-            We work at the intersection of communities, municipalities, and
-            markets
+            {ABOUT_SECTION.title}
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Designing systems that are practical, inclusive, and scalable.
+            {ABOUT_SECTION.description}
           </p>
         </motion.div>
 
@@ -30,10 +31,12 @@ const AboutSection = () => {
           transition={{ duration: 0.8 }}
           className="max-w-3xl mx-auto"
         >
-          <img
-            src={circularConcept.src}
-            alt="Circular Nepal concept - Collect, Recover, Reinvest, Create Value"
+          <Image
+            src={circularConcept}
+            alt={ABOUT_SECTION.imageAlt}
             className="w-full h-auto rounded-2xl shadow-2xl"
+            sizes="(min-width: 1024px) 768px, 100vw"
+            placeholder="blur"
           />
         </motion.div>
       </div>

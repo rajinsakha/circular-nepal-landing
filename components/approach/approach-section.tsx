@@ -1,27 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import { Settings, Users, BarChart3 } from "lucide-react";
-
-const approaches = [
-  {
-    icon: Settings,
-    title: "Systems over slogans",
-    description:
-      "We focus on operating models that work on the ground — not pilots that end in reports.",
-  },
-  {
-    icon: Users,
-    title: "People at the center",
-    description:
-      "Women, informal workers, and communities are partners in the system, not beneficiaries.",
-  },
-  {
-    icon: BarChart3,
-    title: "Proof through data",
-    description:
-      "We measure flows, outcomes, and value creation — and publish progress transparently.",
-  },
-];
+import { APPROACH_SECTION } from "@/constants/approach";
 
 const ApproachSection = () => {
   return (
@@ -35,17 +14,17 @@ const ApproachSection = () => {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
-            Our Approach
+            {APPROACH_SECTION.title}
           </h2>
           <p className="text-lg text-muted-foreground">
-            What makes us different
+            {APPROACH_SECTION.subtitle}
           </p>
         </motion.div>
 
         <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {approaches.map((approach, index) => (
+          {APPROACH_SECTION.items.map((approach, index) => (
             <motion.div
-              key={approach.title}
+              key={approach.id}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}

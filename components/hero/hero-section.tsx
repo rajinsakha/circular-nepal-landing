@@ -1,5 +1,6 @@
 "use client";
 import { motion } from "motion/react";
+import { HERO_SECTION } from "@/constants/hero";
 
 const HeroSection = () => {
   return (
@@ -20,13 +21,13 @@ const HeroSection = () => {
             transition={{ delay: 0.3, duration: 0.6 }}
             className="text-accent font-medium tracking-wide uppercase mb-4"
           >
-            Hope from the Top of the World
+            {HERO_SECTION.tagline}
           </motion.p>
 
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-primary mb-6 leading-tight">
-            Circular{" "}
+            {HERO_SECTION.title.primary}{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-sun">
-              Nepal
+              {HERO_SECTION.title.accent}
             </span>
           </h1>
 
@@ -36,9 +37,11 @@ const HeroSection = () => {
             transition={{ delay: 0.5, duration: 0.6 }}
             className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto"
           >
-            Join us to move circularity from{" "}
-            <span className="text-accent font-semibold">concept</span> to
-            execution.
+            {HERO_SECTION.description.prefix}
+            <span className="text-accent font-semibold">
+              {HERO_SECTION.description.highlight}
+            </span>
+            {HERO_SECTION.description.suffix}
           </motion.p>
 
           <motion.div
@@ -48,16 +51,16 @@ const HeroSection = () => {
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
             <a
-              href="#join"
+              href={HERO_SECTION.cta.primary.href}
               className="px-8 py-4 bg-primary text-primary-foreground rounded-full font-semibold text-lg hover:bg-primary/90 transition-all hover:shadow-xl hover:-translate-y-1"
             >
-              Partner With Us
+              {HERO_SECTION.cta.primary.label}
             </a>
             <a
-              href="#about"
+              href={HERO_SECTION.cta.secondary.href}
               className="px-8 py-4 border-2 border-primary text-primary rounded-full font-semibold text-lg hover:bg-primary/5 transition-all"
             >
-              Learn More
+              {HERO_SECTION.cta.secondary.label}
             </a>
           </motion.div>
         </motion.div>

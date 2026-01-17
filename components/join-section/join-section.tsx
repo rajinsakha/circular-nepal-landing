@@ -1,29 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import { Building2, Factory, Heart } from "lucide-react";
-
-const stakeholders = [
-  {
-    icon: Building2,
-    title: "Municipalities",
-    description:
-      "Pilot ward-level circular systems with reporting and citizen engagement.",
-    color: "from-sun to-accent",
-  },
-  {
-    icon: Factory,
-    title: "Companies & Brands",
-    description: "Test EPR, traceability, and circular supply chain models.",
-    color: "from-sun to-accent",
-  },
-  {
-    icon: Heart,
-    title: "Donors & Foundations",
-    description:
-      "Support programs tied to measurable outcomes and system change.",
-    color: "from-sun to-accent",
-  },
-];
+import { JOIN_SECTION } from "@/constants/join";
 
 const JoinSection = () => {
   return (
@@ -37,17 +14,17 @@ const JoinSection = () => {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
-            Join Us
+            {JOIN_SECTION.title}
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Together, we can build circular systems that create lasting impact.
+            {JOIN_SECTION.subtitle}
           </p>
         </motion.div>
 
         <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {stakeholders.map((stakeholder, index) => (
+          {JOIN_SECTION.items.map((stakeholder, index) => (
             <motion.div
-              key={stakeholder.title}
+              key={stakeholder.id}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -71,10 +48,10 @@ const JoinSection = () => {
                 {stakeholder.description}
               </p>
               <a
-                href="#contact"
+                href={JOIN_SECTION.cta.href}
                 className="inline-flex items-center text-accent font-semibold hover:text-sun transition-colors"
               >
-                Get in touch
+                {JOIN_SECTION.cta.label}
                 <svg
                   className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"
                   fill="none"

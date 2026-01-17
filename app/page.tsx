@@ -1,6 +1,5 @@
 import AboutSection from "@/components/about/about";
 import ApproachSection from "@/components/approach/approach-section";
-import ContactSection from "@/components/contact/contact-section";
 import Footer from "@/components/footer/footer";
 import Header from "@/components/header/header";
 import HeroSection from "@/components/hero/hero-section";
@@ -21,7 +20,6 @@ export default function Home() {
         <AboutSection />
         <ApproachSection />
         <JoinSection />
-        <ContactSection />
       </main>
       <Footer />
     </div>

@@ -1,7 +1,9 @@
 "use client";
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import Image from "next/image";
 import mountainSunBg from "@/assets/mountain-section.jpg";
+import { MOUNTAIN_SECTION } from "@/constants/mountain";
 
 const MountainSection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -29,10 +31,14 @@ const MountainSection = () => {
         className="absolute inset-0 z-0"
         style={{ scale: imageScale, opacity: imageOpacity }}
       >
-        <img
-          src={mountainSunBg.src}
-          alt="Mountain sunrise representing hope and new beginnings"
-          className="w-full h-full object-cover"
+        <Image
+          src={mountainSunBg}
+          alt={MOUNTAIN_SECTION.imageAlt}
+          fill
+          className="object-cover"
+          sizes="100vw"
+          placeholder="blur"
+          priority={false}
         />
         {/* Gradient overlay for text readability */}
         {/* <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" /> */}
@@ -47,16 +53,17 @@ const MountainSection = () => {
         viewport={{ once: true }}
       >
         <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 drop-shadow-lg">
-          Hope from the <span className="text-sun">Top of the World</span>
+          {MOUNTAIN_SECTION.title}{" "}
+          <span className="text-sun">{MOUNTAIN_SECTION.highlight}</span>
         </h2>
         <p className="text-xl md:text-2xl text-white/90 drop-shadow-md">
-          Where the mountains meet the sky, we build a circular future for Nepal
+          {MOUNTAIN_SECTION.description}
         </p>
       </motion.div>
 
       {/* Sun target marker - invisible, used for sun animation alignment */}
       <div
-        id="sun-target"
+        id={MOUNTAIN_SECTION.sunTargetId}
         className="absolute top-[15%] left-1/2 -translate-x-1/2 w-32 h-32 md:w-48 md:h-48 lg:w-64 lg:h-64 pointer-events-none"
       />
     </section>

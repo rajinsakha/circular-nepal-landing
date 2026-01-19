@@ -1,13 +1,25 @@
 "use client";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import circularConcept from "@/assets/circular-concept.png";
+import sectionCity from "@/assets/section_city.jpg";
 import { ABOUT_SECTION } from "@/constants/about";
 
 const AboutSection = () => {
   return (
-    <section id="about" className="py-24 relative">
-      <div className="container mx-auto px-6">
+    <section id="about" className="relative h-screen py-24 overflow-hidden">
+      <div className="absolute inset-0 z-0">
+        <Image
+          src={sectionCity}
+          alt="Kathmandu cityscape background"
+          fill
+          className="object-cover"
+          sizes="100vw"
+          placeholder="blur"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/50 to-background/40" />
+      </div>
+
+      <div className="container mx-auto px-6 relative z-10 flex items-center justify-center h-full">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -15,16 +27,16 @@ const AboutSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-6 max-w-4xl mx-auto leading-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-primary mb-6 max-w-5xl mx-auto leading-tight">
             {ABOUT_SECTION.title}
           </h2>
-          <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto">
             {ABOUT_SECTION.description}
           </p>
         </motion.div>
 
         {/* Circular concept image */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
@@ -38,7 +50,7 @@ const AboutSection = () => {
             sizes="(min-width: 1024px) 768px, 100vw"
             placeholder="blur"
           />
-        </motion.div>
+        </motion.div> */}
       </div>
     </section>
   );

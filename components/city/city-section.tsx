@@ -2,10 +2,10 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
-import mountainSunBg from "@/assets/mountain-section.jpg";
+import mountainSunBg from "@/assets/section_hills.jpg";
 import { MOUNTAIN_SECTION } from "@/constants/mountain";
 
-const MountainSection = () => {
+const CitySection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
 
   const { scrollYProgress } = useScroll({
@@ -17,7 +17,7 @@ const MountainSection = () => {
   const imageOpacity = useTransform(
     scrollYProgress,
     [0, 0.3, 0.7, 1],
-    [0.5, 1, 1, 0.5]
+    [0.5, 1, 1, 0.5],
   );
 
   return (
@@ -35,7 +35,7 @@ const MountainSection = () => {
           src={mountainSunBg}
           alt={MOUNTAIN_SECTION.imageAlt}
           fill
-          className="object-cover"
+          className="object-cover object-top"
           sizes="100vw"
           placeholder="blur"
           priority={false}
@@ -70,4 +70,4 @@ const MountainSection = () => {
   );
 };
 
-export default MountainSection;
+export default CitySection;

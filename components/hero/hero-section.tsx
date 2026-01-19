@@ -1,12 +1,24 @@
 "use client";
+import Image from "next/image";
 import { motion } from "motion/react";
+import heroMountain from "@/assets/hero_mountain.jpg";
 import { HERO_SECTION } from "@/constants/hero";
 
 const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-      {/* Mountain silhouette background */}
-      <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-primary/10 to-transparent" />
+      {/* Hero background image */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src={heroMountain}
+          alt="Himalayan mountain backdrop"
+          fill
+          className="object-cover object-bottom"
+          sizes="100vw"
+          priority
+        />
+        {/* <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/10 to-transparent" /> */}
+      </div>
 
       <div className="container mx-auto px-6 relative z-10">
         <motion.div
@@ -71,7 +83,7 @@ const HeroSection = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2, duration: 0.6 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2"
+        className="absolute bottom-10 left-1/2 z-10 -translate-x-1/2"
       >
         <motion.div
           animate={{ y: [0, 10, 0] }}

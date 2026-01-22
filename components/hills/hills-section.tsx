@@ -2,7 +2,7 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
-import hills from "@/assets/section_hills.jpeg";
+import hills from "@/assets/hills.png";
 import { HILLS_SECTION } from "@/constants/hills";
 
 const HillsSection = () => {

@@ -1,7 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import sectionCity from "@/assets/section_city.jpeg";
+import sectionCity from "@/assets/city.png";
 import { ABOUT_SECTION } from "@/constants/about";
 
 const AboutSection = () => {

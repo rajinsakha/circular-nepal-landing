@@ -1,8 +1,8 @@
 "use client";
 import Image from "next/image";
 import { motion } from "motion/react";
-import heroMountain from "@/assets/hero_mountain.jpeg";
 import { HERO_SECTION } from "@/constants/hero";
+import mountain from "@/assets/mountain.png";
 import Link from "next/link";
 
 const HeroSection = () => {
@@ -11,7 +11,7 @@ const HeroSection = () => {
       {/* Hero background image */}
       <div className="absolute inset-0 z-0">
         <Image
-          src={heroMountain}
+          src={mountain}
           alt="Himalayan mountain backdrop"
           fill
           className="object-cover "

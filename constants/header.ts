@@ -5,7 +5,6 @@ export const HEADER_CONTENT = {
   },
   navLinks: [
     { id: "about", href: "#about", label: "About" },
-    { id: "approach", href: "#approach", label: "Approach" },
     { id: "join", href: "#join", label: "Join Us" },
   ],
   cta: {

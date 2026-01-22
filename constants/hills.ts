@@ -1,5 +1,5 @@
 export const HILLS_SECTION = {
-  title: "Hope from",
+  title: "",
   highlight: "the Top",
   subtitle: "of the World",
   description:

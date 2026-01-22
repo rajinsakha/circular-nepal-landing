@@ -25,14 +25,14 @@ const HeroSection = () => {
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
           className="max-w-4xl mx-auto text-center"
         >
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 0.3, duration: 0.6 }}
-            className="text-xs sm:text-sm md:text-base text-secondary font-medium tracking-wide uppercase mb-4"
+            transition={{ delay: 0.15, duration: 0.5 }}
+            className="text-xs sm:text-sm md:text-base lg:text-lg text-secondary font-medium tracking-wide uppercase mb-4"
           >
             {HERO_SECTION.tagline}
           </motion.p>
@@ -47,7 +47,7 @@ const HeroSection = () => {
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 0.6 }}
+            transition={{ delay: 0.25, duration: 0.5 }}
             className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto capitalize"
           >
             {HERO_SECTION.description.prefix}
@@ -60,19 +60,19 @@ const HeroSection = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.7, duration: 0.6 }}
+            transition={{ delay: 0.35, duration: 0.5 }}
             className="flex flex-col sm:flex-row gap-4 justify-center items-center"
           >
             <Link
               href={HERO_SECTION.cta.primary.href}
-              className=" py-3 text-sm sm:text-base  bg-primary text-primary-foreground rounded-full font-semibold hover:bg-primary/90 transition-all hover:shadow-xl hover:-translate-y-1 w-60 flex items-center justify-center"
+              className="py-3 px-6 text-sm sm:text-base bg-primary text-primary-foreground rounded-full font-semibold hover:bg-primary/90 transition-all hover:shadow-xl hover:-translate-y-1 w-full sm:w-auto sm:min-w-[200px] flex items-center justify-center"
             >
               {HERO_SECTION.cta.primary.label}
             </Link>
 
             <Link
               href={HERO_SECTION.cta.secondary.href}
-              className=" py-3 text-sm sm:text-base  border-2 border-primary text-primary rounded-full font-semibold hover:bg-primary/5 transition-all w-60 flex items-center justify-center"
+              className="py-3 px-6 text-sm sm:text-base border-2 border-primary text-primary rounded-full font-semibold hover:bg-primary/5 transition-all w-full sm:w-auto sm:min-w-[200px] flex items-center justify-center"
             >
               {HERO_SECTION.cta.secondary.label}
             </Link>
@@ -84,7 +84,7 @@ const HeroSection = () => {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1.2, duration: 0.6 }}
+        transition={{ delay: 0.8, duration: 0.5 }}
         className="absolute bottom-10 left-1/2 z-10 -translate-x-1/2"
       >
         <motion.div

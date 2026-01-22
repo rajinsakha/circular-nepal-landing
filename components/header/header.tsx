@@ -36,26 +36,40 @@ const Header = () => {
     setIsMobileMenuOpen(false);
   };
 
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href.startsWith("#")) {
+      e.preventDefault();
+      const element = document.querySelector(href);
+      if (element) {
+        const headerHeight = 80; // Approximate header height
+        const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+        const offsetPosition = elementPosition - headerHeight;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth",
+        });
+      }
+      closeMobileMenu();
+    }
+  };
+
   return (
     <>
-      <motion.header
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.6 }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled || isMobileMenuOpen
-            ? "bg-background/95 backdrop-blur-md shadow-md py-3"
-            : "bg-transparent py-4"
-        }`}
+      <header
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled || isMobileMenuOpen
+          ? "bg-background/95 backdrop-blur-md shadow-md py-3"
+          : "bg-transparent py-4"
+          }`}
       >
-        <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
-          <a href="#" className="flex items-center gap-2 md:gap-3">
+        <div className="container mx-auto px-4 sm:px-6 flex items-center justify-between">
+          <a href="#" className="flex items-center gap-2 sm:gap-3">
             <Image
               src={logo}
               alt={HEADER_CONTENT.brand.logoAlt}
-              className="w-10 h-10 md:w-14 md:h-14 object-contain"
+              className="w-8 h-8 sm:w-10 sm:h-10 md:w-14 md:h-14 object-contain"
             />
-            <span className="text-lg md:text-xl lg:text-2xl font-semibold text-primary">
+            <span className="text-base sm:text-lg md:text-xl lg:text-2xl font-semibold text-primary">
               {HEADER_CONTENT.brand.name}
             </span>
           </a>
@@ -65,6 +79,7 @@ const Header = () => {
               <a
                 key={link.id}
                 href={link.href}
+                onClick={(e) => handleNavClick(e, link.href)}
                 className="text-sm lg:text-base text-primary/80 hover:text-primary transition-colors font-medium"
               >
                 {link.label}
@@ -72,6 +87,7 @@ const Header = () => {
             ))}
             <a
               href={HEADER_CONTENT.cta.href}
+              onClick={(e) => handleNavClick(e, HEADER_CONTENT.cta.href)}
               className="px-5 py-2 text-sm lg:text-base bg-primary text-primary-foreground rounded-full font-medium hover:bg-primary/90 transition-colors"
             >
               {HEADER_CONTENT.cta.label}
@@ -119,12 +135,12 @@ const Header = () => {
               transition={{ duration: 0.2, ease: "easeOut" }}
               className="md:hidden absolute left-0 right-0 top-full bg-background/95 backdrop-blur-md border-t border-primary/10 shadow-lg"
             >
-              <div className="container mx-auto px-4 py-6 flex flex-col gap-4">
+              <div className="container mx-auto px-4 sm:px-6 py-6 flex flex-col gap-4">
                 {HEADER_CONTENT.navLinks.map((link, index) => (
                   <motion.a
                     key={link.id}
                     href={link.href}
-                    onClick={closeMobileMenu}
+                    onClick={(e) => handleNavClick(e, link.href)}
                     initial={{ opacity: 0, y: -6 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: index * 0.05, duration: 0.15 }}
@@ -135,7 +151,7 @@ const Header = () => {
                 ))}
                 <motion.a
                   href={HEADER_CONTENT.cta.href}
-                  onClick={closeMobileMenu}
+                  onClick={(e) => handleNavClick(e, HEADER_CONTENT.cta.href)}
                   initial={{ opacity: 0, y: -6 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{
@@ -150,7 +166,7 @@ const Header = () => {
             </motion.nav>
           )}
         </AnimatePresence>
-      </motion.header>
+      </header>
     </>
   );
 };

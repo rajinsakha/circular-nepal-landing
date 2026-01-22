@@ -3,10 +3,11 @@ import Image from "next/image";
 import { motion } from "motion/react";
 import heroMountain from "@/assets/hero_mountain.jpeg";
 import { HERO_SECTION } from "@/constants/hero";
+import Link from "next/link";
 
 const HeroSection = () => {
   return (
-    <section className="relative h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative h-screen flex items-center justify-center overflow-hidden pb-20">
       {/* Hero background image */}
       <div className="absolute inset-0 z-0">
         <Image
@@ -47,7 +48,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.6 }}
-            className="text-lg sm:text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto capitalize"
+            className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto capitalize"
           >
             {HERO_SECTION.description.prefix}
             <span className="text-accent font-semibold">
@@ -60,20 +61,21 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.7, duration: 0.6 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center"
+            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
           >
-            <a
+            <Link
               href={HERO_SECTION.cta.primary.href}
-              className="px-8 py-4 text-sm sm:text-base  bg-primary text-primary-foreground rounded-full font-semibold hover:bg-primary/90 transition-all hover:shadow-xl hover:-translate-y-1"
+              className=" py-3 text-sm sm:text-base  bg-primary text-primary-foreground rounded-full font-semibold hover:bg-primary/90 transition-all hover:shadow-xl hover:-translate-y-1 w-60 flex items-center justify-center"
             >
               {HERO_SECTION.cta.primary.label}
-            </a>
-            <a
+            </Link>
+
+            <Link
               href={HERO_SECTION.cta.secondary.href}
-              className="px-8 py-4 text-sm sm:text-base  border-2 border-primary text-primary rounded-full font-semibold hover:bg-primary/5 transition-all"
+              className=" py-3 text-sm sm:text-base  border-2 border-primary text-primary rounded-full font-semibold hover:bg-primary/5 transition-all w-60 flex items-center justify-center"
             >
               {HERO_SECTION.cta.secondary.label}
-            </a>
+            </Link>
           </motion.div>
         </motion.div>
       </div>

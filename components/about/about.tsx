@@ -1,7 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import sectionCity from "@/assets/section_city.jpg";
+import sectionCity from "@/assets/section_city.jpeg";
 import { ABOUT_SECTION } from "@/constants/about";
 
 const AboutSection = () => {
@@ -19,7 +19,7 @@ const AboutSection = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/50 to-background/40" />
       </div>
 
-      <div className="container mx-auto px-6 relative z-10 flex items-center justify-center h-full">
+      <div className="container mx-auto px-6 relative z-10 flex items-start justify-center h-full">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -27,10 +27,17 @@ const AboutSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-primary mb-6 max-w-5xl mx-auto leading-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-primary mb-6 max-w-4xl mx-auto leading-tight">
             {ABOUT_SECTION.title}
+            <span className="text-secondary">
+              {ABOUT_SECTION.highlightedTextOne}
+            </span>
+            {ABOUT_SECTION.subTitle}
+            <span className="text-secondary">
+              {ABOUT_SECTION.highlightedTextTwo}
+            </span>
           </h2>
-          <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl md:text-2xl text-primary max-w-3xl mx-auto">
             {ABOUT_SECTION.description}
           </p>
         </motion.div>

@@ -4,7 +4,7 @@ import AboutSection from "@/components/about/about";
 import HeroSection from "@/components/hero/hero-section";
 import JoinSection from "@/components/join-section/join-section";
 import ApproachSection from "@/components/approach/approach-section";
-import CitySection from "@/components/city/city-section";
+import HillsSection from "@/components/hills/hills-section";
 // import PersistentSun from "@/components/sun/persistent-sun";
 
 export default function Home() {
@@ -16,7 +16,7 @@ export default function Home() {
       <Header />
       <main>
         <HeroSection />
-        <CitySection />
+        <HillsSection />
         <AboutSection />
         <ApproachSection />
         <JoinSection />

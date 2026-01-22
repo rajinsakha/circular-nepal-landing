@@ -2,10 +2,10 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
-import mountainSunBg from "@/assets/section_hills.jpg";
-import { MOUNTAIN_SECTION } from "@/constants/mountain";
+import hills from "@/assets/section_hills.jpeg";
+import { HILLS_SECTION } from "@/constants/hills";
 
-const CitySection = () => {
+const HillsSection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
 
   const { scrollYProgress } = useScroll({
@@ -24,7 +24,7 @@ const CitySection = () => {
     <section
       ref={sectionRef}
       id="mountain-vision"
-      className="relative h-screen flex items-center justify-center overflow-hidden"
+      className="relative h-screen flex items-start justify-center overflow-hidden py-16"
     >
       {/* Mountain background image */}
       <motion.div
@@ -32,10 +32,10 @@ const CitySection = () => {
         style={{ scale: imageScale, opacity: imageOpacity }}
       >
         <Image
-          src={mountainSunBg}
-          alt={MOUNTAIN_SECTION.imageAlt}
+          src={hills}
+          alt={HILLS_SECTION.imageAlt}
           fill
-          className="object-cover object-top"
+          className="object-cover"
           sizes="100vw"
           placeholder="blur"
           priority={false}
@@ -52,22 +52,17 @@ const CitySection = () => {
         transition={{ duration: 0.8, delay: 0.3 }}
         viewport={{ once: true }}
       >
-        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 drop-shadow-lg">
-          {MOUNTAIN_SECTION.title}{" "}
-          <span className="text-sun">{MOUNTAIN_SECTION.highlight}</span>
+        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-primary mb-6 ">
+          {HILLS_SECTION.title}{" "}
+          <span className="text-secondary">{HILLS_SECTION.highlight} </span>
+          {HILLS_SECTION.subtitle}
         </h2>
-        <p className="text-base sm:text-lg md:text-xl text-white/90 drop-shadow-md">
-          {MOUNTAIN_SECTION.description}
+        <p className="text-base sm:text-lg md:text-xl text-primary ">
+          {HILLS_SECTION.description}
         </p>
       </motion.div>
-
-      {/* Sun target marker - invisible, used for sun animation alignment */}
-      <div
-        id={MOUNTAIN_SECTION.sunTargetId}
-        className="absolute top-[15%] left-1/2 -translate-x-1/2 w-32 h-32 md:w-48 md:h-48 lg:w-64 lg:h-64 pointer-events-none"
-      />
     </section>
   );
 };
 
-export default CitySection;
+export default HillsSection;

@@ -1,19 +1,19 @@
 "use client";
 import Image from "next/image";
 import { motion } from "motion/react";
-import heroMountain from "@/assets/hero_mountain.jpg";
+import heroMountain from "@/assets/hero_mountain.jpeg";
 import { HERO_SECTION } from "@/constants/hero";
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+    <section className="relative h-screen flex items-center justify-center overflow-hidden">
       {/* Hero background image */}
       <div className="absolute inset-0 z-0">
         <Image
           src={heroMountain}
           alt="Himalayan mountain backdrop"
           fill
-          className="object-cover object-bottom"
+          className="object-cover "
           sizes="100vw"
           priority
         />
@@ -31,23 +31,23 @@ const HeroSection = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3, duration: 0.6 }}
-            className="text-xs sm:text-sm md:text-base text-accent font-medium tracking-wide uppercase mb-4"
+            className="text-xs sm:text-sm md:text-base text-secondary font-medium tracking-wide uppercase mb-4"
           >
             {HERO_SECTION.tagline}
           </motion.p>
 
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-primary mb-6 leading-tight">
-            {HERO_SECTION.title.primary}{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-sun">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-primary mb-6 leading-tight ">
+            {HERO_SECTION.title.primary + " "} {HERO_SECTION.title.accent}
+            {/* <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-sun">
               {HERO_SECTION.title.accent}
-            </span>
+            </span> */}
           </h1>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.6 }}
-            className="text-lg sm:text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto"
+            className="text-lg sm:text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto capitalize"
           >
             {HERO_SECTION.description.prefix}
             <span className="text-accent font-semibold">
@@ -64,13 +64,13 @@ const HeroSection = () => {
           >
             <a
               href={HERO_SECTION.cta.primary.href}
-              className="px-8 py-4 text-base sm:text-lg bg-primary text-primary-foreground rounded-full font-semibold hover:bg-primary/90 transition-all hover:shadow-xl hover:-translate-y-1"
+              className="px-8 py-4 text-sm sm:text-base  bg-primary text-primary-foreground rounded-full font-semibold hover:bg-primary/90 transition-all hover:shadow-xl hover:-translate-y-1"
             >
               {HERO_SECTION.cta.primary.label}
             </a>
             <a
               href={HERO_SECTION.cta.secondary.href}
-              className="px-8 py-4 text-base sm:text-lg border-2 border-primary text-primary rounded-full font-semibold hover:bg-primary/5 transition-all"
+              className="px-8 py-4 text-sm sm:text-base  border-2 border-primary text-primary rounded-full font-semibold hover:bg-primary/5 transition-all"
             >
               {HERO_SECTION.cta.secondary.label}
             </a>

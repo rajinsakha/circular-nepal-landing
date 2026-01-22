@@ -1,7 +1,9 @@
 export const ABOUT_SECTION = {
   eyebrow: "About",
-  title:
-    "We work at the intersection of communities, municipalities, and markets",
+  title: "We work at the intersection of ",
+  highlightedTextOne: "communities, municipalities, ",
+  subTitle: "and ",
+  highlightedTextTwo: "markets",
   description: "Designing systems that are practical, inclusive, and scalable.",
   highlights: [
     "Community-first design",
@@ -14,6 +16,5 @@ export const ABOUT_SECTION = {
     title: "From collection to value creation",
     steps: ["Collect", "Recover", "Reinvest", "Create value"],
   },
-  imageAlt:
-    "Circular Nepal concept - Collect, Recover, Reinvest, Create Value",
+  imageAlt: "Circular Nepal concept - Collect, Recover, Reinvest, Create Value",
 } as const;

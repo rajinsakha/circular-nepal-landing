@@ -36,13 +36,17 @@ const Header = () => {
     setIsMobileMenuOpen(false);
   };
 
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+  const handleNavClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string,
+  ) => {
     if (href.startsWith("#")) {
       e.preventDefault();
       const element = document.querySelector(href);
       if (element) {
         const headerHeight = 80; // Approximate header height
-        const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+        const elementPosition =
+          element.getBoundingClientRect().top + window.pageYOffset;
         const offsetPosition = elementPosition - headerHeight;
 
         window.scrollTo({
@@ -57,17 +61,18 @@ const Header = () => {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled || isMobileMenuOpen
-          ? "bg-background/95 backdrop-blur-md shadow-md py-3"
-          : "bg-transparent py-4"
-          }`}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          isScrolled || isMobileMenuOpen
+            ? "bg-background/95 backdrop-blur-md shadow-md py-3"
+            : "bg-transparent py-4"
+        }`}
       >
-        <div className="container mx-auto px-4 sm:px-6 flex items-center justify-between">
+        <div className="container mx-auto px-4 flex items-center justify-between">
           <a href="#" className="flex items-center gap-2 sm:gap-3">
             <Image
               src={logo}
               alt={HEADER_CONTENT.brand.logoAlt}
-              className="w-8 h-8 sm:w-10 sm:h-10 md:w-14 md:h-14 object-contain"
+              className="w-10 h-10 sm:w-14 sm:h-14  object-contain"
             />
             <span className="text-base sm:text-lg md:text-xl lg:text-2xl font-semibold text-primary">
               {HEADER_CONTENT.brand.name}

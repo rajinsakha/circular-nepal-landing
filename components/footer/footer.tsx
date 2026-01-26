@@ -9,7 +9,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-16 mb-20">
           <div className="lg:col-span-4 space-y-8">
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2">
               <Image
                 alt={FOOTER_CONTENT.brand.logoAlt}
                 src={FOOTER_CONTENT.brand.logoSrc}
@@ -17,7 +17,7 @@ export default function Footer() {
                 height={48}
               />
               <span className="font-display text-xl sm:text-2xl font-bold tracking-tight text-white">
-                {FOOTER_CONTENT.brand.name}
+                {FOOTER_CONTENT.brand.name}{" "}
                 <span className="text-secondary">
                   {FOOTER_CONTENT.brand.accent}
                 </span>
